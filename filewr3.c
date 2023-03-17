@@ -21,6 +21,11 @@ int main(int argc, char **argv)
 
 void file1(char *filename){
 	int fd = open(filename,	O_RDWR, 0644);
+	// int fd = open(filename, O_RDWR);
+	// int fd = open(filename, O_RDONLY | O_CREAT);
+	// int fd = open(filename, O_WRONLY | O_CREAT, 0644);
+	// int fd = open(filename, O_WRONLY } O_CREAT | O_EXCL, 0644);
+	// ===example===
 	if(fd < 0)
 	{
 		printf("%s(%d)\n", strerror(errno), errno);
