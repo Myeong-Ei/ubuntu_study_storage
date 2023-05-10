@@ -9,7 +9,7 @@ int main()
 	int count = 5;
 	
 	sigemptyset(&set);
-	sigaddset(&set, SIGINT);
+	sigfillset(&set);
 	
 	sigprocmask(SIG_BLOCK, &set, NULL);
 	
@@ -18,6 +18,8 @@ int main()
 		printf("don't disturb me(%d)\n", count--);
 		sleep(1);
 	}
+	sigemptyset(&set);
+	sigaddset(&set, SIGINT);
 	sigprocmask(SIG_UNBLOCK, &set, NULL);
 	printf("disturb me!\n");
 }
